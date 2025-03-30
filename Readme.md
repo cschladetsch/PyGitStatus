@@ -32,6 +32,7 @@ This Python script (`git-status.py`) provides a convenient way to check the `git
         python3 git-status.py
         ```
 3.  **Optional: Make it executable (Linux/macOS):**
+    * There's also a provided `status` script that calls the git-status.py script.
     * Add the shebang line to the beginning of the script: `#!/usr/bin/env python3`
     * Make the script executable: `chmod +x git-status.py`
     * Run it directly: `./git-status.py`
