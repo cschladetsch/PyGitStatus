@@ -23,7 +23,7 @@ def git_status_in_subfolders(root_folder="."):
             if os.path.isdir(item_path) and item != ".":
                 git_dir = os.path.join(item_path, ".git")
                 if os.path.exists(git_dir) and os.path.isdir(git_dir):
-                    print(f"{Colors.BLUE}Git status in '{item_path}':{Colors.RESET}")
+                    print(f"{Colors.BLUE}Git status in '{item_path}':{Colors.RESET}", end='')
                     try:
                         process = subprocess.run(
                             ["git", "status", "-s"],
