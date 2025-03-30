@@ -4,7 +4,7 @@ This Python script (`git-status.py`) provides a convenient way to check the `git
 
 ## Demo
 
-![Image](Resources/Untitled.png)
+![Image](resources/Untitled.png)
 
 ## Features
 
