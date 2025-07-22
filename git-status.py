@@ -3,6 +3,8 @@
 
 import os
 import subprocess
+import sys
+import argparse
 
 class Colors:
     RED = '\033[91m'
@@ -92,5 +94,28 @@ def git_status_in_subfolders(root_folder="."):
         print(f"{Colors.RED}An unexpected error occurred: {e}{Colors.RESET}")
 
 if __name__ == "__main__":
-    git_status_in_subfolders()
+    parser = argparse.ArgumentParser(
+        description='Check git status of all subdirectories in a given folder',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog='''
+Examples:
+  status              # Check current directory
+  status ~/work       # Check ~/work directory
+  status .            # Check current directory explicitly
+  status /path/to/dir # Check specific directory
+        '''
+    )
+    parser.add_argument(
+        'folder',
+        nargs='?',
+        default='.',
+        help='Folder to check for git repositories (default: current directory)'
+    )
+    
+    args = parser.parse_args()
+    
+    # Expand ~ to home directory if present
+    folder_path = os.path.expanduser(args.folder)
+    
+    git_status_in_subfolders(folder_path)
 
